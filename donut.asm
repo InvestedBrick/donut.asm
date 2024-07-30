@@ -18,14 +18,6 @@ section .data
     eight_float dd 8.0
     newline db 10
 
-    round_up_cntrl_word dw 0x0A7F
-
-
-    special_chars_1 db 0x1b,"[2J"
-    len_special_1 equ $ - special_chars_1
-    special_chars_2 db 0x1b, "[d"
-    len_special_2 equ $ - special_chars_2
-
 
     luminance db ".,-~:;=!*#$@"
     len equ $ - luminance
