@@ -18,6 +18,9 @@ section .data
     eight_float dd 8.0
     newline db 10
 
+    round_up_cntrl_word dw 0x0A7F
+
+
     special_chars_1 db 0x1b,"[2J"
     len_special_1 equ $ - special_chars_1
     special_chars_2 db 0x1b, "[d"
@@ -59,11 +62,6 @@ memset:
 .done:
     ret                     
 _start:
-    mov rax, 1
-    mov rdi, 1
-    mov rsi, special_chars_1
-    mov edx, len_special_1
-    syscall
 
 _endless:
     mov rdi,b
@@ -163,6 +161,7 @@ _inner_loop:
 
     mulss xmm11, [mess]
     mulss xmm11, [thirty_float]
+
     cvttss2si eax, xmm11
     add eax, 40
     ; -> eax=40+30*mess*(cosi*cosj2*cosB-t*sinB)
@@ -179,6 +178,8 @@ _inner_loop:
     mulss xmm11, [mess]
 
     mulss xmm11, [fifteen_float]
+
+
     cvttss2si ebx, xmm11
     add ebx, 12
     ; -> ebx = 12+15*mess*(cosi*cosj2*sinB +t*cosB)
@@ -220,6 +221,7 @@ _inner_loop:
     mulss xmm0, [eight_float]
     cvttss2si edi, xmm0
     ; -> edi = 8*((sinj*sinA-sini*cosj*cosA)*cosB-sini*cosj*sinA-sinj*cosA-cosi*cosj*sinB)
+    
     cmp ebx, 22
     jge _end_inner_loop
 
@@ -292,12 +294,6 @@ _end_outer_loop:
 
 _finish:
 
-    mov rax, 1
-    mov rdi, 1
-    mov rsi, special_chars_1
-    mov edx, len_special_1
-    syscall
-    
     mov dword [k], 0
 
 _render_loop:
