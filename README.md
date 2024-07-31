@@ -14,10 +14,4 @@ I have tried my best to recreate to original [donut.c](https://gist.github.com/g
 - Then just run `./donut` and enjoy the animation
 
 
-<br><br>
-<video width="320" height="240" autoplay loop muted>
-  <source src="/donut_animation/donut_spin_clean_2.mp4" type="video/mp4" />
-  Your browser does not support the video tag.
-</video>
-
 
