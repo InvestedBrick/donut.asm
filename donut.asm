@@ -1,6 +1,4 @@
 global _start
-extern sin
-extern cos
 section .data
     two_pi dd 6.28
     A dd 0.0
@@ -52,7 +50,9 @@ memset:
     jnz .loop               
 
 .done:
-    ret                     
+    ret  
+
+
 _start:
 
 _endless:
