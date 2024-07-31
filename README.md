@@ -5,8 +5,8 @@ I have tried my best to recreate to original [donut.c](https://gist.github.com/g
 
 ## Prerequisites 
 - You need to be on a 64-bit Linux distribution
-- You need to have nasm and the gcc standard libraries installed
-- You can run `prerequisites.sh`to install all necesary dependancies
+- You need to have nasm installed
+    - run `sudo apt install nasm` on Ubuntu to install nasm
 
 
 ## Building
